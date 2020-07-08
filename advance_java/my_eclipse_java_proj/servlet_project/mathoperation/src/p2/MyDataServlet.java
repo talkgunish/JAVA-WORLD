@@ -1,0 +1,85 @@
+package p2;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class MyDataServlet
+ */
+@WebServlet("/MyDataServlet")
+public class MyDataServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MyDataServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		Connection conn;
+		ServletContext ctx=getServletConfig().getServletContext();
+		
+					PrintWriter out=response.getWriter();
+		
+		String id=request.getParameter("id");
+		
+						String driver=ctx.getInitParameter("driver");
+						String url=ctx.getInitParameter("url");
+						String user=ctx.getInitParameter("user");
+						String pass=ctx.getInitParameter("pass");
+						
+						
+						
+						try {
+							Class.forName(driver);
+							conn=DriverManager.getConnection(url, user, pass);
+							String query="select * from teacher where id=?";
+					PreparedStatement ps=conn.prepareStatement(query);
+								ResultSet rs=ps.executeQuery();
+										
+										while(rs.next()) {
+											
+										out.print(	rs.getInt(1));
+											out.print(rs.getString(2));
+											out.print(rs.getLong(3));
+											
+											
+										}
+						}
+						catch(Exception e) {
+							
+						}
+		
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

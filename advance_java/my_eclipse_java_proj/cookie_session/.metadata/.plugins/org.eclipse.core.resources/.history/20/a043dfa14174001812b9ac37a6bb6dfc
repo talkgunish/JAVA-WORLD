@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body bgcolor="grey" align="center">
+<form action="go" method="post">
+<br><h1 align="center">AAO DHOONDO!!!</h1><br>
+<p align="center"><input type="text" name="search"></p>
+<p align="center"><input type="submit" value="search"> </p>
+</form>
+
+</body>
+</html>

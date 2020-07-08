@@ -1,0 +1,29 @@
+package p2;
+
+
+public class Math 
+{
+	public static void sum() {
+		int a=20;
+		int b=30;
+		int c=a+b;
+		System.out.println(c);
+		
+	}
+	public static void mul() {
+		int a=10;
+		int b=20;
+		int c=a*b;
+		System.out.println(c);
+	}
+	piblic static void sub() {
+		int a=6;
+		int b=4;
+		int c=a-b;
+		System.out.println(c);	
+	}
+	public static void main() {
+		Math ab=new Math();
+	}
+		
+	}

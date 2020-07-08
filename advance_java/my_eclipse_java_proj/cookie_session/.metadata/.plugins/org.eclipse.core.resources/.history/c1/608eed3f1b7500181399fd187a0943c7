@@ -1,0 +1,123 @@
+package Filter1;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class Signup1 implements Filter {
+	
+	FilterConfig con=null;
+
+public void init (FilterConfig con)
+ { 
+				this.con=con;
+	System.out.print(" this is filter config");
+ }
+@Override
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+{
+	// program for the first package Filter1...
+	
+	/*String name=request.getParameter("username");
+	String pass=request.getParameter("password");
+	String phone=request.getParameter("phone");
+	if(name.equals("ducat")&&pass.equals("ducat"))
+	{
+		try {
+			
+			chain.doFilter(request, response);
+			 this itself is sending the objects of request and response...and the next statement of dispatcher 
+			 * will again send thereby we have commented that
+			//and where to send the objects it finds from web.xml
+			
+			//request.getRequestDispatcher("servlet").include(request, response);
+		}
+		catch(Exception e)
+		{
+			System.out.print(e);
+		}
+		
+	}
+	else { try {
+		PrintWriter out=response.getWriter();
+		out.println("please fillin correct details");
+		out.println("<html><body bgcolor='silver'><a href='signup.html'><br>");
+		out.println("<input type='button' value='login again'>");
+		out.println("</a></body></html>");
+				//request.getRequestDispatcher("signup.html").include(request, response);
+		}
+	
+	catch(Exception e)
+	{
+		System.out.print(e);
+	}
+	}
+
+		
+ 
+public void destroy() {}
+} */
+
+// program for second package Filter2...
+	
+	String name=request.getParameter("username");
+	String pass=request.getParameter("password");
+	String phone=request.getParameter("phone");
+ 
+	Connection conn=null;
+	FilterConfig ctx=(FilterConfig)con.getServletContext();
+	String driver=ctx.getInitParameter("driver");
+	String url=ctx.getInitParameter("url");
+	String user=ctx.getInitParameter("user");
+	String pass2=ctx.getInitParameter("pass");
+
+
+	try {
+		
+	Class.forName(driver);
+	try {
+		PrintWriter out=response.getWriter();	
+		out.print("done!!!");
+	}
+	catch(Exception e)
+	{}
+	conn=DriverManager.getConnection(url, user, pass2);
+	 String query="insert into Filter valuer(?,?,?)";
+	
+	 
+	 PreparedStatement ps=conn.prepareStatement (query);
+	ps.setString(1, name);
+	ps.setString(2,pass);
+	ps.setLong(2,Long.parseLong(phone));
+	int i=ps.executeUpdate();
+	
+	
+
+	if(i!=0) {
+		PrintWriter out=response.getWriter();	
+	out.print("data submitted succesfully");
+	
+				HttpServletResponse httpresponse=(HttpServletResponse)response;
+				httpresponse.sendRedirect("login.html");
+
+	}
+	
+		
+	
+	}
+	catch (Exception e)
+	{
+		System.out.print(e);
+	}
+	
+	
+	
+}public void destroy() {
+}
+}
+
+

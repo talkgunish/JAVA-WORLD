@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>login/Signup here</title>
+</head>
+<body bgcolor='grey' align='center'>
+
+<form action='signup' method='post'>
+
+<h1>WELCOME TO FILTER</h1>
+<table>
+<tr><th>Id :</th>
+<td> <input type="text" name="id"></td>
+<td> <select>
+  <option value="volvo">Admin</option>
+  <option value="saab">User</option>
+  </select></tr>
+<tr><th>Phone No. : </th>
+<td><input type="text" name="phone"></td></tr>
+<tr><th>Username :</th>
+<td> <input type="text" name="username"></td></tr>
+<tr><th>Password: </th>
+<td><input type="password" name='password'></td></tr>
+
+<tr><td><a href="login.html">Login</a>
+<td><input type="submit" value="signup"></td></tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+INDEX VERSION 1.4+G:\Projects\advance_java\my_eclipse_java_proj\cookie_session\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+237042941.index
+3663562804.index
+1429106182.index
+1440635903.index
+2964563765.index
+3444806745.index
+4153303067.index
+2057872698.index
+1111181176.index
+2313629620.index

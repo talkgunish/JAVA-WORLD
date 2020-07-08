@@ -1,0 +1,35 @@
+package org.first;
+
+import java.io.IOException;
+import javax.servlet.*;
+
+/**
+ * Servlet implementation class Addition
+ */
+
+public class Addition implements Servlet {
+	private static final long serialVersionUID = 1L;
+
+	public void  init(ServletConfig con)
+	{
+		
+	}
+	public void Service(ServletRequest reg,ServletResponse res );
+	{
+		
+	}
+	public void  destroy()
+	{
+	}
+	public String getServletInformation()
+	{
+		return null;
+	}
+	public ServletConfig getServletConfig()
+	{
+		return null;
+	}
+	}
+
+
+

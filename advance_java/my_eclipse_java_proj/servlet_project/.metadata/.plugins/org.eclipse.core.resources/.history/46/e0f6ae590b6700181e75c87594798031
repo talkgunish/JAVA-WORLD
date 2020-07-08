@@ -1,0 +1,39 @@
+package p2;
+
+import java.io.IOException;
+
+import javax.Servlet.*;
+
+public class mathoperation extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+	
+		
+				PrintWriter out=response.getWriter();
+}
+public class Math
+{
+	public static sum() {
+		int a=20;
+		int b=30;
+		int c=a+b;
+		System.out.println(c);
+		
+	}
+	public static mul() {
+		int a=10;
+		int b=20;
+		int c=a*b;
+		System.out.println(c);
+	}
+	piblic static sub() {
+		int a=6;
+		int b=4;
+		int c=a-b;
+		System.out.println(c);	
+	}
+	public static void main() {
+		Math ab=new Math();
+	}
+		
+	}

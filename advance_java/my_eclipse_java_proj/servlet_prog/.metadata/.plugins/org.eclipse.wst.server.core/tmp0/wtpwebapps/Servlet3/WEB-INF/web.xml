@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<servlet>
+<init-param>
+<param-name>name</param-name>
+<param-value>gunish</param-value>
+</init-param>
+<servlet-name>Servletproj3</servlet-name>
+<servlet-class>Servlet3.MyServlet3</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Servletproj3</servlet-name>
+<url-pattern>/go</url-pattern>
+</servlet-mapping>
+</web-app>

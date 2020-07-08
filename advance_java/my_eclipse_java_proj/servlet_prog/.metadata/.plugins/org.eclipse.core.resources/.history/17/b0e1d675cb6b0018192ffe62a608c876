@@ -1,0 +1,110 @@
+package p2;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Enumeration;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class MyReg
+ */
+@WebServlet("/MyReg")
+public class MyReg extends HttpServlet {
+	int i;
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MyReg() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter out=response.getWriter();
+		String id=request.getParameter("id");
+		String name=request.getParameter("name");
+		String mobile=request.getParameter("mobile"); 
+		 ServletContext con=getServletConfig().getServletContext();
+		 Enumeration e=con.getInitParameterNames();
+		 String []a= new String[5];
+		 String []b= new String[5];
+		 
+		 while(e.hasMoreElements())
+		 {
+			 String s=(String)e.nextElement();
+			String ss=con.getInitParameter(s);
+		 
+		 b[i]=ss;
+		 
+		 i++;
+		 }
+		try {
+			/*Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url="jdbc:oracle:thin:@localhost:1521:xe";
+			String user="system";
+			String pass="system";
+			*/
+			
+			Class.forName(b[0]);
+			
+	
+			
+			
+			
+			Connection conn=DriverManager.getConnection(b[1],b[2],b[3]);
+				
+		PreparedStatement ps=conn.prepareStatement("insert into teacher values(?,?,?)");
+		
+		ps.setInt(1, Integer.parseInt(id));
+		ps.setString(2,name);
+		ps.setLong(3,Long.parseLong(mobile));
+		
+			int i=ps.executeUpdate();
+			
+			if(i!=0) {
+				out.print("your data submited sucessfully ....");
+			}
+			else {
+				out.print("went wrong !!! plz try leter ");
+			}
+			
+			
+		}
+						
+		catch(Exception e)
+		{
+			System.out.println(e);
+			
+		}
+	/*out.print("ID :" + "id");
+	out.print("Name :" + "name");
+	out.print("Phone No.:" + "mobile");
+	*/
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

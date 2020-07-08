@@ -1,0 +1,31 @@
+package p1;
+
+import java.io.IOException;
+import javax.servlet.*;
+import java.io.*;
+public class Address implements Servlet {
+	private static final long serialVersionUID = 1L;
+    public void init(ServletConfig con)throws ServletException 
+    {
+        // TODO Auto-generated constructor stub
+    }
+    public void service(ServletRequest req,ServletResponse res)
+    {
+    	PrintWriter out=res.getWriter();
+    	out.println("MY NAME IS   = VINAY");
+    	out.println("MY ADDRESS IS   =  C-105 HARSHVIHAR");
+    	out.println("MAIL IS  = KHGADLHI1553@GMAIL.COM");
+    }
+    public void distroy()
+    {
+    }
+    public String getServletInfo()
+    {
+    	return null;
+    }
+    public ServletConfig getServletConfig()
+    {
+    	return null;
+    }
+    
+	}

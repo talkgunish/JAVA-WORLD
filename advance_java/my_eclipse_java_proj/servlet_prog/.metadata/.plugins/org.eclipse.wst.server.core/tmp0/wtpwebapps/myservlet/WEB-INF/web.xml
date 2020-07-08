@@ -1,0 +1,11 @@
+<web-app>
+<servlet>
+<servlet-name>my</servlet-name>
+<servlet-class>org.servlet.MyHttpServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>my</servlet-name>
+<url-pattern>/go</url-pattern>
+</servlet-mapping>
+</web-app>
