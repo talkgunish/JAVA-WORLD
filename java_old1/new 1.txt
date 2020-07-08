@@ -1,0 +1,23 @@
+craeting file and counting the number of directories and number of files
+
+
+class Myfile {
+psvm()
+{
+File f= new File("music");
+int dircount=0;
+int filecount=0;
+if(f.exist())
+{
+String s[]= f.lists();
+for(int i=0; i<s.length;i++)
+{
+if(ff.isFile())
+{
+filecount++;
+}
+else
+{
+dircount++;
+}
+sop("file count ="+filecount+"directory count"+dircount);

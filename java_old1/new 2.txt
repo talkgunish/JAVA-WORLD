@@ -1,0 +1,20 @@
+FileWriter:-
+
+its used to create and write operation into file...
+its a predefine dclass present in i/o package...
+
+predefined Constructors of FileWriter:-
+
+FileWriter fw= new FileWriter(String name);
+FileWriter fw= new FileWriter(File f);
+FileWriter fw= new FileWriter(String name, boolean append);
+FileWriter fw= new FileWriter(File f, boolean append);
+
+predefined methods of FileWriter:-
+
+int write(int i);
+write(char c);
+write(String s);
+flush()....this is used with every write method...this ensures that all the data is being transferred and no data loss occurs
+close()
+

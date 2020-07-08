@@ -1,0 +1,17 @@
+package org.mypack;
+
+import javax.swing.JFrame;
+
+public class MyFirst_Prog extends JFrame{
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		   MyFirst_Prog p=new MyFirst_Prog();
+		   p.setVisible(true);
+		   p.setSize(400,400);
+		System.out.print("hiii");
+
+	}
+
+}
